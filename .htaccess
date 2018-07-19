@@ -1,0 +1,6 @@
+RewriteEngine On
+
+# rewrite incoming request to be understandable for the system
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*) index.php?r=$1 [L]

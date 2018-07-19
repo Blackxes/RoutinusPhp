@@ -1,0 +1,31 @@
+// how the route parser works
+
+// split incoming route and count segments
+// a 3 segment route is this -> product/43/view
+// a 4 segment route is this -> product/43/view/detailed
+
+// get route records with the same segment count
+
+// check if an absolute route fits
+
+// walk through the pulled routes and check each segment for a match
+
+// matched route are stored and prioritized
+// -> priorization i based on the count of placeholder
+// the less placeholder the higher prio the route has
+
+// when more than 1 route is left a conflict will occur
+// there can only be one route with this method
+
+// separating out the routes will lead to the fewest placeholder
+// conflicted routes will be selected down to the furthest placeholder
+//
+// -> product/{productid}/view
+// -> product/{userid}/view
+// this wont be possible because this pattern already exist with the first route
+//
+// -> product/23/{mode}
+// -> product/{userid}/view
+// route 1. will be selected because the placeholder its placeholder its further away
+
+// other combinations are not possible with how the parser selects the route
